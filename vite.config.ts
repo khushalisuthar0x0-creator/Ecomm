@@ -1,15 +1,15 @@
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
+import { nitro } from "nitro/vite";
 
 export default defineConfig({
+  cloudflare: false,
   tanstackStart: {
     server: { entry: "server" },
   },
+  plugins: [nitro({ preset: "render-com" })],
   vite: {
     server: {
-      allowedHosts: [
-        "velvet-cart-suite.onrender.com",
-        ".onrender.com", // optional: any *.onrender.com preview URL
-      ],
+      allowedHosts: ["velvet-cart-suite.onrender.com", ".onrender.com"],
     },
   },
 });
