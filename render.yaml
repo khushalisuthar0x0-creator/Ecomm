@@ -3,8 +3,10 @@ services:
     name: ecomm-app
     env: node
     plan: starter
-    buildCommand: npm install && npm run build
+    buildCommand: ls -la && npm config list && npm install && ls -la node_modules/.bin/ && npm run build
     startCommand: npm start
     envVars:
       - key: NODE_VERSION
         value: 20
+      - key: NPM_CONFIG_LOGLEVEL
+        value: verbose
